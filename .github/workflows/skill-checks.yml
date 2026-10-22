@@ -1,0 +1,14 @@
+name: Skill checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  skills:
+    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/evaluate-skills.yml@5856cdde3710dd94eb53a4da92d1902c21e34ef2
+    with:
+      paths: skills
+      llm: false

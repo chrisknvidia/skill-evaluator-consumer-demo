@@ -1,0 +1,26 @@
+name: Skill checks with LLM
+on:
+  workflow_dispatch:
+    inputs:
+      provider:
+        description: Provider for your repository's LLM_API_KEY secret
+        type: choice
+        default: openai
+        options: [openai, anthropic, nv_build]
+      model:
+        description: Optional model override
+        type: string
+        default: ''
+permissions:
+  contents: read
+jobs:
+  skills:
+    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/evaluate-skills.yml@5856cdde3710dd94eb53a4da92d1902c21e34ef2
+    with:
+      paths: skills
+      llm: true
+      llm-provider: ${{ inputs.provider }}
+      llm-model: ${{ inputs.model }}
+      artifact-name: skill-evaluator-tier1-llm
+    secrets:
+      LLM_API_KEY: ${{ secrets.LLM_API_KEY }}

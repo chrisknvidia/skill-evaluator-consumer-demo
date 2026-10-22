@@ -1,0 +1,21 @@
+name: Verify CI failure handling
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: Deliberate verification case; failure is expected for these cases
+        type: choice
+        required: true
+        options:
+          - mixed-valid-and-invalid
+          - missing-path
+          - missing-llm-key
+permissions:
+  contents: read
+jobs:
+  verify:
+    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/evaluate-skills.yml@5856cdde3710dd94eb53a4da92d1902c21e34ef2
+    with:
+      paths: ${{ inputs.scenario == 'missing-path' && 'does-not-exist' || inputs.scenario == 'mixed-valid-and-invalid' && format('skills{0}tests/fixtures', fromJSON('"\n"')) || 'skills/glossary-builder' }}
+      llm: ${{ inputs.scenario == 'missing-llm-key' }}
+      artifact-name: verification-${{ inputs.scenario }}

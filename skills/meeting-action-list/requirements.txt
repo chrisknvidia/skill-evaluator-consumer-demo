@@ -1,0 +1,3 @@
+# Dependency inventory for the CI dependency-audit demonstration.
+# The CSV helper itself uses only Python standard-library modules.
+packaging==26.0
