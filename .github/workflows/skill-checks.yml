@@ -8,7 +8,7 @@ permissions:
   contents: read
 jobs:
   skills:
-    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/evaluate-skills.yml@5856cdde3710dd94eb53a4da92d1902c21e34ef2
+    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/evaluate-skills.yml@3dfc2616a354e313ae430782744f2100b0ce5bef
     with:
       paths: skills
       llm: false

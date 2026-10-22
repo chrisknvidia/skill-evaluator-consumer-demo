@@ -4,7 +4,7 @@ description: Extracts explicit commitments from meeting notes. Use when a meetin
 license: MIT
 metadata:
   author: SkillEvaluator CI Demo Authors <ci-demo@example.com>
-  version: "1.0.0"
+  version: 1.0.0
   tags:
     - demonstration
     - text-assistance
