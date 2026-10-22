@@ -30,8 +30,11 @@ and select a **Skill checks** run.
    artifact for full JSON, HTML, Markdown, SARIF, and stdout/stderr logs.
 3. **Open the hosted report** from the summary or PR comment once publication
    completes. Its **Needs attention** section explains failures near the top;
-   expandable skill/check tables retain exact findings, source locations,
-   suggestions, and supporting evidence.
+   the skill list links to SkillEvaluator's native HTML report for each skill.
+   Searchable findings retain exact source locations and suggested fixes.
+   Quality dimensions, N/A checks, and incomplete diagnostics remain distinct.
+   The reports support mobile, keyboard navigation, dark mode, offline use,
+   print, and downloads of the original JSON evidence.
 
 The configured [report history](https://chrisknvidia.github.io/skill-evaluator-consumer-demo/)
 retains each published run and attempt. The
