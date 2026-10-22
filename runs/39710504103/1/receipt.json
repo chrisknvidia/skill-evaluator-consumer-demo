@@ -1,0 +1,12 @@
+{
+  "run_id": 39710504103,
+  "run_attempt": 1,
+  "head_sha": "6da096f62206fd9e1aecc89c170a5dc4af31303f",
+  "artifact_id": 12397000477,
+  "run_url": "https://github.com/chrisknvidia/skill-evaluator-consumer-demo/actions/runs/39710504103",
+  "report_url": "https://chrisknvidia.github.io/skill-evaluator-consumer-demo/runs/39710504103/1/",
+  "overall_status": "passed",
+  "ci_conclusion": "success",
+  "event": "push",
+  "trusted_evaluator_sha": "3dfc2616a354e313ae430782744f2100b0ce5bef"
+}
