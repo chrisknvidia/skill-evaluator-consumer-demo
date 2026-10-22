@@ -48,11 +48,12 @@ separate from scanning: the report labels the **CI run conclusion** and
 **Tier 1 scan result** independently. A report-publication problem does not
 turn a failed scan into a pass.
 
-The hosted report and bot-comment changes are being verified in this demo;
-the routes above are the configured interface, not confirmation that a new
-deployment has completed. Until publication finishes, download the artifact
-and open `index.html` locally. The publisher rebuilds its site from validated
-JSON; it does not execute pull-request code or trust artifact-supplied HTML.
+Hosted reports and automatic PR feedback have been exercised in real GitHub
+Actions runs, including the deliberately failing [PR #1](https://github.com/chrisknvidia/skill-evaluator-consumer-demo/pull/1).
+Publishing follows scan completion and may take another minute. While it is
+pending, read the run summary or download the artifact and open `index.html`
+locally. The publisher rebuilds its site from validated JSON; it does not execute
+pull-request code or trust artifact-supplied HTML.
 Fork-PR report publication and bot comments are not enabled in this example.
 
 The scan includes all applicable Tier 1 checks, including SkillSpector. No
