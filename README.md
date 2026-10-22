@@ -112,9 +112,9 @@ structure and applicable quality checks; it does not prove their usefulness
 in a live agent evaluation.
 
 The intentionally invalid skill at `tests/fixtures/invalid-skill/SKILL.md`
-is excluded from `skills/`. It safely demonstrates a structural rejection:
-its name is malformed and does not match its directory, and its description
-is below the required length. Negative-test jobs should target that fixture
+is excluded from `skills/`. Its malformed name, which does not match its
+directory, causes the structural rejection. Its short description also falls
+below the recommended level of detail. Negative-test jobs should target that fixture
 explicitly and expect validation to fail. Do not include it in the normal
 passing collection.
 
