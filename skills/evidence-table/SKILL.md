@@ -4,7 +4,7 @@ description: Organizes supplied claims and observations into an evidence table. 
 license: MIT
 metadata:
   author: SkillEvaluator CI Demo Authors <ci-demo@example.com>
-  version: "1.0.0"
+  version: 1.0.0
   tags:
     - demonstration
     - text-assistance

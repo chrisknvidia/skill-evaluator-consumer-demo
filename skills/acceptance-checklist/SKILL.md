@@ -4,7 +4,7 @@ description: Converts a stated feature requirement into observable acceptance ch
 license: MIT
 metadata:
   author: SkillEvaluator CI Demo Authors <ci-demo@example.com>
-  version: "1.0.0"
+  version: 1.0.0
   tags:
     - demonstration
     - text-assistance

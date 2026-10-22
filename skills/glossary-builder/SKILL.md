@@ -4,7 +4,7 @@ description: Builds a small glossary from supplied prose. Use when a reader need
 license: MIT
 metadata:
   author: SkillEvaluator CI Demo Authors <ci-demo@example.com>
-  version: "1.0.0"
+  version: 1.0.0
   tags:
     - demonstration
     - text-assistance
