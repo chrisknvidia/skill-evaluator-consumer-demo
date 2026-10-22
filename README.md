@@ -11,12 +11,49 @@ calls a reusable workflow from the
 sets `paths: skills`, and leaves `llm: false`. The workflow and image are pinned
 so the recorded result identifies the code that actually ran.
 
-On each push to `main` or pull request, GitHub pulls the already-built image,
-scans all five skills, and publishes a check plus downloadable reports. The
+On each push to `main`, pull-request change, or manual **Skill checks** start,
+GitHub pulls the already-built image and scans the configured skills. The
 consumer does not build the evaluator, install scanners, or need a registry
-password. Inspect [Actions](../../actions) and open a **Skill checks** run; its
-summary lists each skill and its **skill-evaluator-tier1** artifact contains
-JSON, HTML, Markdown, SARIF, and logs.
+password.
+
+## Find the results
+
+Open [Actions](https://github.com/chrisknvidia/skill-evaluator-consumer-demo/actions)
+and select a **Skill checks** run.
+
+1. **Read the run summary** for each skill's status, actual quality score and
+   grade, errors/warnings, and validator evidence. A score is a recorded
+   quality assessment, not a percentage of security checks passed.
+2. **Open the Tier 1 scan job** for per-skill and per-check diagnostics. Failed
+   checks show their recorded reason and suggested fix; GitHub annotations
+   highlight actionable failures. Download the **skill-evaluator-tier1**
+   artifact for full JSON, HTML, Markdown, SARIF, and stdout/stderr logs.
+3. **Open the hosted report** from the summary or PR comment once publication
+   completes. Its **Needs attention** section explains failures near the top;
+   expandable skill/check tables retain exact findings, source locations,
+   suggestions, and supporting evidence.
+
+The configured [report history](https://chrisknvidia.github.io/skill-evaluator-consumer-demo/)
+retains each published run and attempt. The
+[latest main report](https://chrisknvidia.github.io/skill-evaluator-consumer-demo/main/latest/)
+is a stable entry point; `pr/<number>/` is the corresponding stable link for
+an eligible same-repository pull request. Permanent run reports live under
+`runs/<run-id>/<attempt>/`. Older run reports remain available in history.
+The publisher checks the current commit before advancing a main or PR link,
+so a delayed old run cannot replace the current result.
+
+Eligible PR runs automatically create or update one bot comment with the
+skill scores, failure reasons, and direct report/run links. Publishing is
+separate from scanning: the report labels the **CI run conclusion** and
+**Tier 1 scan result** independently. A report-publication problem does not
+turn a failed scan into a pass.
+
+The hosted report and bot-comment changes are being verified in this demo;
+the routes above are the configured interface, not confirmation that a new
+deployment has completed. Until publication finishes, download the artifact
+and open `index.html` locally. The publisher rebuilds its site from validated
+JSON; it does not execute pull-request code or trust artifact-supplied HTML.
+Fork-PR report publication and bot comments are not enabled in this example.
 
 The scan includes all applicable Tier 1 checks, including SkillSpector. No
 Tier 2 or Tier 3 evaluation runs. A green check means the requested Tier 1
@@ -41,8 +78,10 @@ Create an Actions repository secret named `LLM_API_KEY`, then manually start
 **Skill checks with LLM** and choose its provider and optional model. This adds
 LLM security analysis, finding verification, and rubric evaluation. It makes
 billable calls to your selected provider. The normal pull-request workflow
-does not pass this secret. Credentialed LLM success must be verified separately
-from the static example; a missing-key test is not that verification.
+does not pass this secret. Real credentialed LLM success has not been tested
+in this demonstration.
+A missing-key test proves configuration rejection, not successful model-backed
+analysis; that success needs its own live verification.
 
 GitHub branch rules can separately require the **Tier 1 scan** check before
 merging. This repository demonstrates the check and does not enforce a merge rule.
@@ -73,9 +112,9 @@ structure and applicable quality checks; it does not prove their usefulness
 in a live agent evaluation.
 
 The intentionally invalid skill at `tests/fixtures/invalid-skill/SKILL.md`
-is excluded from `skills/`. It safely demonstrates a structural rejection:
-its name is malformed and does not match its directory, and its description
-is below the required length. Negative-test jobs should target that fixture
+is excluded from `skills/`. Its malformed name, which does not match its
+directory, causes the structural rejection. Its short description also falls
+below the recommended level of detail. Negative-test jobs should target that fixture
 explicitly and expect validation to fail. Do not include it in the normal
 passing collection.
 

@@ -1,0 +1,25 @@
+name: Publish skill reports
+on:
+  workflow_run:
+    workflows: [Skill checks]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      run-id:
+        description: Completed Skill checks run to publish or republish
+        type: string
+        required: true
+permissions:
+  contents: write
+  actions: read
+  pages: write
+  id-token: write
+  pull-requests: write
+jobs:
+  reports:
+    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/publish-skill-reports.yml@9805953caad9db9b19cf0f9599862b2854e44be2
+    with:
+      run-id: ${{ format('{0}', github.event.workflow_run.id || inputs.run-id) }}
+      report-base-url: https://chrisknvidia.github.io/skill-evaluator-consumer-demo/
+      trusted-evaluator-shas: 9805953caad9db9b19cf0f9599862b2854e44be2,3dfc2616a354e313ae430782744f2100b0ce5bef
+      trusted-caller-blobs: 19dec6e78ae96c4c638c5fd76fe57a55c54d4109,368163d3204f90ebc81cd6e3e652de099834455c
