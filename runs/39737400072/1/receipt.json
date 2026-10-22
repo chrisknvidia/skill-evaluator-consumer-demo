@@ -1,0 +1,13 @@
+{
+  "run_id": 39737400072,
+  "run_attempt": 1,
+  "head_sha": "bb8bd8130f99b20409f5148125adc18ea2af5de5",
+  "artifact_id": 12406834125,
+  "run_url": "https://github.com/chrisknvidia/skill-evaluator-consumer-demo/actions/runs/39737400072",
+  "report_url": "https://chrisknvidia.github.io/skill-evaluator-consumer-demo/runs/39737400072/1/",
+  "overall_status": "failed",
+  "ci_conclusion": "failure",
+  "event": "pull_request",
+  "trusted_evaluator_sha": "5e3bb8b6af563c8069d9fcee2bfffe54bfa7731e",
+  "image": "ghcr.io/chrisknvidia/skillevaluator-ci-demo@sha256:88047c35d1625325bb55fedef5953ff1caabe56383c2fa780a9bfa933d1752e4"
+}
