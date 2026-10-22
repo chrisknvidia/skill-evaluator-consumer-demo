@@ -14,7 +14,7 @@ permissions:
   contents: read
 jobs:
   verify:
-    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/evaluate-skills.yml@9b030875b66293e0ec086e33f970e4cb1adc60a5
+    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/evaluate-skills.yml@5e3bb8b6af563c8069d9fcee2bfffe54bfa7731e
     with:
       paths: ${{ inputs.scenario == 'missing-path' && 'does-not-exist' || inputs.scenario == 'mixed-valid-and-invalid' && format('skills{0}tests/fixtures', fromJSON('"\n"')) || 'skills/glossary-builder' }}
       llm: ${{ inputs.scenario == 'missing-llm-key' }}
