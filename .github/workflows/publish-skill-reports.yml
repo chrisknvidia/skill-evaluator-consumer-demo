@@ -17,9 +17,9 @@ permissions:
   pull-requests: write
 jobs:
   reports:
-    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/publish-skill-reports.yml@48cceecb6533d6d3ec785b0e62c45f0a74a9d5ec
+    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/publish-skill-reports.yml@f6daf7987549e339d76672df24efcbc7448af765
     with:
       run-id: ${{ format('{0}', github.event.workflow_run.id || inputs.run-id) }}
       report-base-url: https://chrisknvidia.github.io/skill-evaluator-consumer-demo/
-      trusted-evaluator-shas: 48cceecb6533d6d3ec785b0e62c45f0a74a9d5ec,3a6b74df0f2df4dc3c1e00534610a51de382a875,5e3bb8b6af563c8069d9fcee2bfffe54bfa7731e,9b030875b66293e0ec086e33f970e4cb1adc60a5,9805953caad9db9b19cf0f9599862b2854e44be2,3dfc2616a354e313ae430782744f2100b0ce5bef
-      trusted-caller-blobs: ee5c9587e08637f5090216d4c767997bae8b241a,9022d760a94944d78d28cd8a74e2acbe52454c43,1c4df9d920c1a3659cc226939fc3bf35d6c5eb15,e86e4ed5e188a433bb1c4d6a3c1fa8a32de9edec,19dec6e78ae96c4c638c5fd76fe57a55c54d4109,368163d3204f90ebc81cd6e3e652de099834455c
+      trusted-evaluator-shas: f6daf7987549e339d76672df24efcbc7448af765,48cceecb6533d6d3ec785b0e62c45f0a74a9d5ec,3a6b74df0f2df4dc3c1e00534610a51de382a875,5e3bb8b6af563c8069d9fcee2bfffe54bfa7731e,9b030875b66293e0ec086e33f970e4cb1adc60a5,9805953caad9db9b19cf0f9599862b2854e44be2,3dfc2616a354e313ae430782744f2100b0ce5bef
+      trusted-caller-blobs: 7a9cf9822d665dd993151d290587c596f90cc824,ee5c9587e08637f5090216d4c767997bae8b241a,9022d760a94944d78d28cd8a74e2acbe52454c43,1c4df9d920c1a3659cc226939fc3bf35d6c5eb15,e86e4ed5e188a433bb1c4d6a3c1fa8a32de9edec,19dec6e78ae96c4c638c5fd76fe57a55c54d4109,368163d3204f90ebc81cd6e3e652de099834455c
