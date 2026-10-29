@@ -1,0 +1,16 @@
+name: Cross-platform threshold demo
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  skills:
+    uses: chrisknvidia/SkillEvaluator-ci-demo/.github/workflows/evaluate-skills.yml@38c38709c189cb79fb39d76ef17cdd26ddddf507
+    with:
+      image: ghcr.io/chrisknvidia/skillevaluator-ci-demo@sha256:32cbff2beb19cb62a87553ef7d202bdefaf8c6b30792e58f793575e34f4a57e2
+      paths: skills
+      min-score: 70
+      scan-mode: auto
+      llm: false
+      artifact-name: cross-platform-threshold
